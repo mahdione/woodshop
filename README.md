@@ -81,8 +81,9 @@ To publish a release:
 
 1. Update `Version:` in `style.css`.
 2. Commit and push the change.
-3. Create and push a matching tag, for example `v1.1.0`.
-4. The **Build theme release** GitHub Action validates that the tag matches `style.css`, builds `woodshop.zip` and creates the release automatically.
+3. Run `./scripts/release.sh`.
+
+The release script builds `woodshop.zip`, creates a matching tag such as `v1.1.0`, pushes it and publishes the GitHub release with the zip asset. It uses `GITHUB_TOKEN` when set, or the configured git credential helper for github.com.
 
 For a private repository, define `WOODSHOP_GITHUB_TOKEN` in `wp-config.php` or return a token from the `woodshop_github_token` filter.
 
