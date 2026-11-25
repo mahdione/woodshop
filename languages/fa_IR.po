@@ -1,0 +1,204 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Wood Shop 1.0.0\n"
+"Language: fa_IR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: manual\n"
+
+msgid "Address"
+msgstr "آدرس"
+
+msgid "Back to home"
+msgstr "بازگشت به خانه"
+
+msgid "Breadcrumb"
+msgstr "مسیر صفحه"
+
+msgid "Browse the shop"
+msgstr "مشاهده فروشگاه"
+
+msgid "Carpenter reviewing project costs"
+msgstr "نجار در حال بررسی هزینه‌های پروژه"
+
+msgid "Carpenters working together in a workshop"
+msgstr "نجارها در حال همکاری در کارگاه"
+
+msgid "Client reviews"
+msgstr "نظرات مشتریان"
+
+msgid "Contact Info"
+msgstr "اطلاعات تماس"
+
+msgid "Date of Visit"
+msgstr "تاریخ بازدید"
+
+msgid "Email Address"
+msgstr "ایمیل"
+
+msgid "Expert carpentry crafted with precision, quality, and lasting beauty for your space."
+msgstr "چوب‌کاری حرفه‌ای با دقت، کیفیت و زیبایی ماندگار برای فضای شما."
+
+msgid "Expert carpentry knowledge, woodworking innovations, and creative solutions."
+msgstr "دانش تخصصی چوب‌کاری، نوآوری‌های صنعت چوب و راهکارهای خلاقانه."
+
+msgid "Featured craftsmanship"
+msgstr "نمونه‌ای از هنر چوب‌کاری"
+
+msgid "Footer: legal links"
+msgstr "فوتر: پیوندهای حقوقی"
+
+msgid "Footer: services"
+msgstr "فوتر: خدمات"
+
+msgid "Full Name"
+msgstr "نام و نام خانوادگی"
+
+msgid "Get Free Quote"
+msgstr "دریافت استعلام رایگان"
+
+msgid "Hero slides"
+msgstr "اسلایدهای هیرو"
+
+msgid "Home"
+msgstr "خانه"
+
+msgid "Instagram"
+msgstr "اینستاگرام"
+
+msgid "Latest News & Resources"
+msgstr "تازه‌ترین اخبار و منابع"
+
+msgid "Learn More"
+msgstr "بیشتر بدانید"
+
+msgid "New service request from %s"
+msgstr "درخواست خدمات جدید از %s"
+
+msgid "New service request from the website."
+msgstr "درخواست خدمات جدید از وب‌سایت."
+
+msgid "Next"
+msgstr "بعدی"
+
+msgid "Next review"
+msgstr "نظر بعدی"
+
+msgid "No posts found."
+msgstr "نوشته‌ای پیدا نشد."
+
+msgid "Nothing found."
+msgstr "چیزی پیدا نشد."
+
+msgid "Nothing matched your search. Try a different keyword."
+msgstr "نتیجه‌ای برای جستجوی شما پیدا نشد. واژه دیگری را امتحان کنید."
+
+msgid "Pages:"
+msgstr "صفحه‌ها:"
+
+msgid "Pause slideshow"
+msgstr "توقف پخش اسلایدها"
+
+msgid "Phone Number"
+msgstr "شماره تماس"
+
+msgid "Previous"
+msgstr "قبلی"
+
+msgid "Previous review"
+msgstr "نظر قبلی"
+
+msgid "Primary navigation"
+msgstr "منوی اصلی"
+
+msgid "Privacy Policy"
+msgstr "حریم خصوصی"
+
+msgid "Quality guaranteed badge"
+msgstr "نشان تضمین کیفیت"
+
+msgid "Read more"
+msgstr "ادامه مطلب"
+
+msgid "Request Your Services"
+msgstr "درخواست خدمات"
+
+msgid "Required Services"
+msgstr "خدمات مورد نیاز"
+
+msgid "Sale"
+msgstr "تخفیف"
+
+msgid "Schedule Booking"
+msgstr "ثبت درخواست"
+
+msgid "Search"
+msgstr "جستجو"
+
+msgid "Search results for “%s”"
+msgstr "نتایج جستجو برای «%s»"
+
+msgid "Selected work"
+msgstr "نمونه‌کارهای منتخب"
+
+msgid "Services"
+msgstr "خدمات"
+
+msgid "Show slide %d"
+msgstr "نمایش اسلاید %d"
+
+msgid "Shown on blog archives."
+msgstr "در آرشیو وبلاگ نمایش داده می‌شود."
+
+msgid "Sidebar"
+msgstr "نوار کناری"
+
+msgid "Skip to content"
+msgstr "رفتن به محتوا"
+
+msgid "Something went wrong. Please check the required fields and try again."
+msgstr "مشکلی پیش آمد. لطفاً فیلدهای الزامی را بررسی کنید و دوباره تلاش کنید."
+
+msgid "Thank you. Your request has been received and we will be in touch shortly."
+msgstr "از درخواست شما سپاسگزاریم. به‌زودی با شما تماس می‌گیریم."
+
+msgid "The page you are looking for does not exist. Try searching, or head back home."
+msgstr "صفحه‌ای که به دنبال آن هستید وجود ندارد. جستجو کنید یا به صفحه اصلی برگردید."
+
+msgid "This page has been sanded away"
+msgstr "این صفحه وجود ندارد"
+
+msgid "Time of Visit"
+msgstr "ساعت بازدید"
+
+msgid "Toggle menu"
+msgstr "باز و بسته کردن منو"
+
+msgid "Trusted partners"
+msgstr "همکاران مورد اعتماد"
+
+msgid "View Instagram photo %d"
+msgstr "مشاهده عکس اینستاگرام شماره %d"
+
+msgid "View Product"
+msgstr "مشاهده محصول"
+
+msgid "Why work with us"
+msgstr "چرا با ما کار کنید"
+
+msgid "ZIP Code"
+msgstr "کد پستی"
+
+msgid "about %s"
+msgstr "درباره %s"
+
+msgid "View cart, %s item"
+msgid_plural "View cart, %s items"
+msgstr[0] "مشاهده سبد خرید، %s کالا"
+
+msgid "%d star"
+msgid_plural "%d stars"
+msgstr[0] "%d ستاره"
+

@@ -1,0 +1,309 @@
+# Copyright (C) 2026 Wood Shop Studio
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Wood Shop 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/woodshop\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-11-24T20:02:26+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: woodshop\n"
+
+#. Theme Name of the theme
+#: style.css
+msgid "Wood Shop"
+msgstr ""
+
+#. Theme URI of the theme
+#: style.css
+msgid "https://example.com/woodshop"
+msgstr ""
+
+#. Description of the theme
+#: style.css
+msgid "A fast, WooCommerce-ready carpentry theme with a pixel-close recreation of the Nail & Knot homepage. All homepage content is managed from the Wood Shop Studio plugin."
+msgstr ""
+
+#. Author of the theme
+#: style.css
+msgid "Wood Shop Studio"
+msgstr ""
+
+#. Author URI of the theme
+#: style.css
+msgid "https://example.com"
+msgstr ""
+
+#: 404.php:15
+msgid "This page has been sanded away"
+msgstr ""
+
+#: 404.php:16
+msgid "The page you are looking for does not exist. Try searching, or head back home."
+msgstr ""
+
+#: 404.php:18
+msgid "Back to home"
+msgstr ""
+
+#: 404.php:19
+msgid "Browse the shop"
+msgstr ""
+
+#: archive.php:42
+msgid "Nothing found."
+msgstr ""
+
+#: footer.php:15
+#: header.php:13
+msgid "Get Free Quote"
+msgstr ""
+
+#: footer.php:52
+msgid "Expert carpentry crafted with precision, quality, and lasting beauty for your space."
+msgstr ""
+
+#: footer.php:57
+msgid "Services"
+msgstr ""
+
+#: footer.php:89
+msgid "Contact Info"
+msgstr ""
+
+#: footer.php:100
+msgid "Instagram"
+msgstr ""
+
+#. translators: %d: image number.
+#: footer.php:110
+#, php-format
+msgid "View Instagram photo %d"
+msgstr ""
+
+#: footer.php:137
+msgid "Privacy Policy"
+msgstr ""
+
+#: header.php:30
+msgid "Skip to content"
+msgstr ""
+
+#. translators: %d: cart item count.
+#: header.php:52
+#, php-format
+msgid "View cart, %d item"
+msgid_plural "View cart, %d items"
+msgstr[0] ""
+msgstr[1] ""
+
+#: header.php:61
+msgid "Toggle menu"
+msgstr ""
+
+#: inc/form.php:18
+msgid "Full Name"
+msgstr ""
+
+#: inc/form.php:25
+msgid "Email Address"
+msgstr ""
+
+#: inc/form.php:32
+msgid "Phone Number"
+msgstr ""
+
+#: inc/form.php:39
+msgid "Required Services"
+msgstr ""
+
+#: inc/form.php:45
+msgid "ZIP Code"
+msgstr ""
+
+#: inc/form.php:52
+msgid "Address"
+msgstr ""
+
+#: inc/form.php:59
+msgid "Date of Visit"
+msgstr ""
+
+#: inc/form.php:65
+msgid "Time of Visit"
+msgstr ""
+
+#: inc/form.php:86
+msgid "Request Your Services"
+msgstr ""
+
+#: inc/form.php:89
+msgid "Thank you. Your request has been received and we will be in touch shortly."
+msgstr ""
+
+#: inc/form.php:91
+msgid "Something went wrong. Please check the required fields and try again."
+msgstr ""
+
+#: inc/form.php:119
+msgid "Schedule Booking"
+msgstr ""
+
+#: inc/form.php:174
+msgid "New service request from the website."
+msgstr ""
+
+#. translators: %s: sender name.
+#: inc/form.php:199
+#, php-format
+msgid "New service request from %s"
+msgstr ""
+
+#: inc/setup.php:73
+msgid "Primary navigation"
+msgstr ""
+
+#: inc/setup.php:74
+msgid "Footer: services"
+msgstr ""
+
+#: inc/setup.php:75
+msgid "Footer: legal links"
+msgstr ""
+
+#: inc/setup.php:263
+msgid "Sidebar"
+msgstr ""
+
+#: inc/setup.php:265
+msgid "Shown on blog archives."
+msgstr ""
+
+#: inc/template-tags.php:186
+msgid "Previous"
+msgstr ""
+
+#: inc/template-tags.php:187
+msgid "Next"
+msgstr ""
+
+#: inc/template-tags.php:201
+msgid "Breadcrumb"
+msgstr ""
+
+#: inc/template-tags.php:201
+msgid "Home"
+msgstr ""
+
+#: inc/template-tags.php:208
+msgid "Search"
+msgstr ""
+
+#: inc/template-tags.php:293
+msgid "Sale"
+msgstr ""
+
+#: inc/template-tags.php:302
+msgid "View Product"
+msgstr ""
+
+#: index.php:16
+msgid "Latest News & Resources"
+msgstr ""
+
+#: index.php:17
+msgid "Expert carpentry knowledge, woodworking innovations, and creative solutions."
+msgstr ""
+
+#: index.php:38
+msgid "Read more"
+msgstr ""
+
+#: index.php:46
+msgid "No posts found."
+msgstr ""
+
+#: page.php:27
+msgid "Pages:"
+msgstr ""
+
+#. translators: %s: search query.
+#: search.php:19
+#, php-format
+msgid "Search results for “%s”"
+msgstr ""
+
+#: search.php:42
+msgid "Nothing matched your search. Try a different keyword."
+msgstr ""
+
+#: template-parts/areas.php:57
+msgid "Carpenters working together in a workshop"
+msgstr ""
+
+#: template-parts/features.php:24
+#: template-parts/features.php:25
+msgid "Why work with us"
+msgstr ""
+
+#: template-parts/financing.php:27
+msgid "Carpenter reviewing project costs"
+msgstr ""
+
+#: template-parts/guarantee.php:55
+msgid "Quality guaranteed badge"
+msgstr ""
+
+#: template-parts/hero.php:42
+msgid "Featured craftsmanship"
+msgstr ""
+
+#: template-parts/hero.php:144
+msgid "Hero slides"
+msgstr ""
+
+#. translators: %d: slide number.
+#: template-parts/hero.php:146
+#, php-format
+msgid "Show slide %d"
+msgstr ""
+
+#: template-parts/hero.php:149
+msgid "Pause slideshow"
+msgstr ""
+
+#: template-parts/logos.php:26
+msgid "Trusted partners"
+msgstr ""
+
+#: template-parts/services.php:96
+msgid "Learn More"
+msgstr ""
+
+#. translators: %s: service name.
+#: template-parts/services.php:96
+#, php-format
+msgid "about %s"
+msgstr ""
+
+#: template-parts/showcase.php:52
+#: template-parts/showcase.php:53
+msgid "Selected work"
+msgstr ""
+
+#: template-parts/testimonials.php:92
+msgid "Client reviews"
+msgstr ""
+
+#: template-parts/testimonials.php:94
+msgid "Previous review"
+msgstr ""
+
+#: template-parts/testimonials.php:95
+msgid "Next review"
+msgstr ""
