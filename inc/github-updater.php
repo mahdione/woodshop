@@ -201,3 +201,20 @@ function woodshop_github_clear_cache( $upgrader, $options ) {
 	}
 }
 add_action( 'upgrader_process_complete', 'woodshop_github_clear_cache', 10, 2 );
+
+/**
+ * Add this theme to WordPress' automatic-update list.
+ *
+ * The filter above is the runtime fallback; this keeps the Themes screen
+ * checkbox in sync with the actual behaviour.
+ */
+function woodshop_github_register_auto_update() {
+	$auto = (array) get_site_option( 'auto_update_themes', array() );
+
+	if ( ! in_array( WOODSHOP_GITHUB_SLUG, $auto, true ) ) {
+		$auto[] = WOODSHOP_GITHUB_SLUG;
+		update_site_option( 'auto_update_themes', array_values( array_unique( $auto ) ) );
+	}
+}
+add_action( 'admin_init', 'woodshop_github_register_auto_update' );
+add_action( 'after_switch_theme', 'woodshop_github_register_auto_update' );

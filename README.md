@@ -7,7 +7,7 @@ A fast, WooCommerce-ready WordPress theme for carpentry and joinery businesses. 
 - WordPress 6.5+
 - PHP 8.0+
 - WooCommerce (optional, but the shop and product sections need it)
-- Wood Shop Studio plugin (included in `wp-content/plugins/woodshop-studio`)
+- Wood Shop Studio plugin (custom plugin, installed separately from this theme repository)
 
 ## Installation
 
