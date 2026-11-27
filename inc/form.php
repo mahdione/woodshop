@@ -10,79 +10,45 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Form field definitions.
  *
- * @param string $mode "request" or "contact".
+ * Every form on the site uses the same three fields. Labels and placeholders
+ * are editable in Wood Shop Studio → Request Form.
+ *
+ * @param string $mode Retained for backwards compatibility.
  * @return array<string, array<string, mixed>>
  */
 function woodshop_form_fields( $mode = 'request' ) {
-	$fields = array(
+	$name_label    = woodshop_option( 'form.name_label', __( 'نام و نام خانوادگی', 'woodshop' ) );
+	$name_holder   = woodshop_option( 'form.name_placeholder', $name_label );
+	$phone_label   = woodshop_option( 'form.phone_label', __( 'شماره تماس', 'woodshop' ) );
+	$phone_holder  = woodshop_option( 'form.phone_placeholder', $phone_label );
+	$message_label = woodshop_option( 'form.message_label', __( 'پیام شما', 'woodshop' ) );
+	$message_holder = woodshop_option( 'form.message_placeholder', $message_label );
+
+	return array(
 		'name'    => array(
-			'label'        => __( 'نام و نام خانوادگی', 'woodshop' ),
+			'label'        => $name_label,
+			'placeholder'  => $name_holder,
 			'type'         => 'text',
 			'required'     => true,
-			'width'        => 'full',
+			'width'        => 'half',
 			'autocomplete' => 'name',
 		),
-		'email'   => array(
-			'label'        => __( 'ایمیل', 'woodshop' ),
-			'type'         => 'email',
-			'required'     => true,
-			'width'        => 'half',
-			'autocomplete' => 'email',
-		),
 		'phone'   => array(
-			'label'        => __( 'شماره تماس', 'woodshop' ),
+			'label'        => $phone_label,
+			'placeholder'  => $phone_holder,
 			'type'         => 'tel',
 			'required'     => true,
 			'width'        => 'half',
 			'autocomplete' => 'tel',
 		),
+		'message' => array(
+			'label'       => $message_label,
+			'placeholder' => $message_holder,
+			'type'        => 'textarea',
+			'required'    => true,
+			'width'       => 'full',
+		),
 	);
-
-	if ( 'contact' === $mode ) {
-		$fields['message'] = array(
-			'label'    => __( 'پیام شما', 'woodshop' ),
-			'type'     => 'textarea',
-			'required' => true,
-			'width'    => 'full',
-		);
-
-		return $fields;
-	}
-
-	$fields['service'] = array(
-		'label'    => __( 'خدمات مورد نیاز', 'woodshop' ),
-		'type'     => 'text',
-		'required' => true,
-		'width'    => 'wide',
-	);
-	$fields['zip']     = array(
-		'label'        => __( 'کد پستی', 'woodshop' ),
-		'type'         => 'text',
-		'required'     => false,
-		'width'        => 'quarter',
-		'autocomplete' => 'postal-code',
-	);
-	$fields['address'] = array(
-		'label'        => __( 'آدرس', 'woodshop' ),
-		'type'         => 'text',
-		'required'     => false,
-		'width'        => 'half',
-		'autocomplete' => 'street-address',
-	);
-	$fields['date']    = array(
-		'label'    => __( 'تاریخ بازدید', 'woodshop' ),
-		'type'     => 'date',
-		'required' => false,
-		'width'    => 'quarter',
-	);
-	$fields['time']    = array(
-		'label'    => __( 'ساعت بازدید', 'woodshop' ),
-		'type'     => 'time',
-		'required' => false,
-		'width'    => 'quarter',
-	);
-
-	return $fields;
 }
 
 /**
@@ -131,13 +97,13 @@ function woodshop_request_form( $atts = array() ) {
 					<p class="field field--<?php echo esc_attr( $field['width'] ); ?>">
 						<label class="screen-reader-text" for="ws-field-<?php echo esc_attr( $key ); ?>"><?php echo esc_html( $field['label'] ); ?></label>
 						<?php if ( 'textarea' === $field['type'] ) : ?>
-							<textarea id="ws-field-<?php echo esc_attr( $key ); ?>" name="<?php echo esc_attr( $key ); ?>" rows="5" placeholder="<?php echo esc_attr( $field['label'] ); ?>" <?php echo $field['required'] ? 'required' : ''; ?>></textarea>
+							<textarea id="ws-field-<?php echo esc_attr( $key ); ?>" name="<?php echo esc_attr( $key ); ?>" rows="5" placeholder="<?php echo esc_attr( $field['placeholder'] ); ?>" <?php echo $field['required'] ? 'required' : ''; ?>></textarea>
 						<?php else : ?>
 							<input
 								type="<?php echo esc_attr( $field['type'] ); ?>"
 								id="ws-field-<?php echo esc_attr( $key ); ?>"
 								name="<?php echo esc_attr( $key ); ?>"
-								placeholder="<?php echo esc_attr( $field['label'] ); ?>"
+								placeholder="<?php echo esc_attr( $field['placeholder'] ); ?>"
 								<?php echo ! empty( $field['autocomplete'] ) ? 'autocomplete="' . esc_attr( $field['autocomplete'] ) . '"' : ''; ?>
 								<?php echo $field['required'] ? 'required' : ''; ?>
 							>
@@ -199,18 +165,10 @@ function woodshop_handle_request() {
 
 	foreach ( $fields as $key => $field ) {
 		$raw          = isset( $_POST[ $key ] ) ? wp_unslash( $_POST[ $key ] ) : '';
-		$data[ $key ] = 'email' === $field['type'] ? sanitize_email( $raw ) : sanitize_text_field( $raw );
+		$data[ $key ] = 'textarea' === $field['type'] ? sanitize_textarea_field( $raw ) : sanitize_text_field( $raw );
 	}
 
-	$valid = $data['name'] && is_email( $data['email'] ) && $data['phone'];
-
-	if ( 'contact' === $mode ) {
-		$valid = $valid && ! empty( $data['message'] );
-	} else {
-		$valid = $valid && ! empty( $data['service'] );
-	}
-
-	if ( ! $valid ) {
+	if ( empty( $data['name'] ) || empty( $data['phone'] ) || empty( $data['message'] ) ) {
 		wp_safe_redirect( add_query_arg( 'ws_error', 'fields', $redirect ) . '#request' );
 		exit;
 	}
@@ -241,7 +199,6 @@ function woodshop_handle_request() {
 
 	$headers = array(
 		'Content-Type: text/plain; charset=UTF-8',
-		sprintf( 'Reply-To: %1$s <%2$s>', $data['name'], $data['email'] ),
 	);
 
 	$mail_sent = wp_mail(

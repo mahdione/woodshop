@@ -1937,7 +1937,8 @@ select:focus {
 .blog-grid {
 	display: grid;
 	grid-template-columns: 1.18fr 0.82fr;
-	gap: clamp(32px, 5vw, 64px);
+	gap: clamp(28px, 4vw, 48px);
+	align-items: stretch;
 }
 
 .post-feature__media {
@@ -1987,19 +1988,26 @@ select:focus {
 
 .post-list {
 	display: grid;
-	gap: 22px;
-	align-content: start;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	grid-template-rows: repeat(2, minmax(0, 1fr));
+	gap: 20px;
+	height: 100%;
 }
 
 .post-mini {
 	display: flex;
-	align-items: center;
-	gap: 18px;
+	flex-direction: column;
+	align-items: stretch;
+	gap: 0;
+	min-width: 0;
+	height: 100%;
 }
 
 .post-mini__media {
-	flex: 0 0 118px;
-	aspect-ratio: 16 / 11;
+	flex: 1 1 auto;
+	width: 100%;
+	min-height: 0;
+	aspect-ratio: auto;
 	overflow: hidden;
 	background: var(--sand);
 }
@@ -2016,13 +2024,15 @@ select:focus {
 }
 
 .post-mini__body {
+	flex: 0 0 auto;
 	min-width: 0;
+	padding-top: 12px;
 }
 
 .post-mini__title {
-	margin: 0 0 4px;
-	font-size: 1.02rem;
-	line-height: 1.2;
+	margin: 0 0 5px;
+	font-size: 0.98rem;
+	line-height: 1.4;
 }
 
 .post-mini__title a:hover {
@@ -3151,6 +3161,28 @@ body.woocommerce #content div.product div.summary {
 
 	.post-list {
 		grid-template-columns: 1fr 1fr;
+		grid-template-rows: auto;
+		height: auto;
+		align-content: start;
+		gap: 22px;
+	}
+
+	.post-mini {
+		flex-direction: row;
+		align-items: center;
+		gap: 16px;
+		height: auto;
+	}
+
+	.post-mini__media {
+		flex: 0 0 118px;
+		width: 118px;
+		aspect-ratio: 16 / 11;
+	}
+
+	.post-mini__body {
+		flex: 1 1 auto;
+		padding-top: 0;
 	}
 
 	.woocommerce div.product {
@@ -6259,4 +6291,14 @@ a.contact-card__value:hover {
 	.woocommerce-cart table.cart td.actions .cart-actions > button.button {
 		width: 100%;
 	}
+}
+
+/* Keep the header/footer quote button readable on dark surfaces. */
+.site-header--overlay .header-quote:hover,
+.site-header--overlay .header-quote:focus-visible,
+.footer-quote:hover,
+.footer-quote:focus-visible {
+	background: var(--white);
+	border-color: var(--white);
+	color: var(--ink);
 }

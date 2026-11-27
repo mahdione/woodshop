@@ -7,6 +7,7 @@ A fast, WooCommerce-ready WordPress theme for carpentry and joinery businesses. 
 - WordPress 6.5+
 - PHP 8.0+
 - WooCommerce (optional, but the shop and product sections need it)
+- The **Persian Calendar** plugin (`persian-calendar`) for Jalali (Shamsi) dates. The demo site uses it for all blog and archive dates.
 - Wood Shop Studio plugin (custom plugin, installed separately from this theme repository)
 
 ## Installation
