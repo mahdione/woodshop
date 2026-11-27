@@ -22,6 +22,17 @@ require_once WOODSHOP_DIR . '/inc/shop-filters.php';
 require_once WOODSHOP_DIR . '/inc/checkout.php';
 require_once WOODSHOP_DIR . '/inc/github-updater.php';
 
+/*
+ * The companion settings plugin is bundled so the theme can be installed on
+ * its own. If the standalone plugin is active, it loads first and wins.
+ */
+if ( ! defined( 'WOODSHOP_STUDIO_VERSION' ) ) {
+	define( 'WOODSHOP_STUDIO_EMBEDDED', true );
+	require_once WOODSHOP_DIR . '/inc/studio/woodshop-studio.php';
+}
+
+require_once WOODSHOP_DIR . '/inc/demo-import.php';
+
 if ( class_exists( 'WooCommerce' ) ) {
 	require_once WOODSHOP_DIR . '/inc/woocommerce.php';
 }
