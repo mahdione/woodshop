@@ -9,7 +9,7 @@ defined( 'ABSPATH' ) || exit;
 
 $ws_stats = woodshop_option( 'page_about.stats', array() );
 $ws_values = woodshop_option( 'page_about.values', array() );
-$ws_team   = woodshop_option( 'page_about.team', array() );
+$ws_team   = array_slice( (array) woodshop_option( 'page_about.team', array() ), 0, 4 );
 
 get_header();
 ?>

@@ -788,10 +788,6 @@ function woodshop_demo_import() {
 	woodshop_demo_menu_page( $primary, $shop, __( 'فروشگاه', 'woodshop' ) );
 	woodshop_demo_menu_page( $primary, $services, __( 'خدمات', 'woodshop' ) );
 
-	foreach ( $cat_ids as $cat_id ) {
-		woodshop_demo_menu_term( $primary, $cat_id );
-	}
-
 	$portfolio_url = get_post_type_archive_link( 'portfolio' );
 	if ( $portfolio_url ) {
 		woodshop_demo_menu_link( $primary, __( 'نمونه‌کارها', 'woodshop' ), $portfolio_url );

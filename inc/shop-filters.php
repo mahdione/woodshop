@@ -576,3 +576,19 @@ function woodshop_archive_canonical() {
 	}
 }
 add_action( 'wp_head', 'woodshop_archive_canonical', 2 );
+
+/**
+ * Wrap the result count and catalog ordering in one toolbar row.
+ */
+function woodshop_shop_loop_bar_open() {
+	echo '<div class="shop-loop-bar">';
+}
+add_action( 'woocommerce_before_shop_loop', 'woodshop_shop_loop_bar_open', 19 );
+
+/**
+ * Close the result/ordering toolbar.
+ */
+function woodshop_shop_loop_bar_close() {
+	echo '</div>';
+}
+add_action( 'woocommerce_before_shop_loop', 'woodshop_shop_loop_bar_close', 31 );

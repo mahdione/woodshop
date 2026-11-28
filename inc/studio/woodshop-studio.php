@@ -3,7 +3,7 @@
  * Plugin Name: Wood Shop Studio
  * Plugin URI: https://github.com/mahdione/woodshop-studio
  * Description: Homepage builder and theme customizer for the Wood Shop WordPress theme. Manage the hero slider, sections, products, menus, footer and request form from a single admin screen.
- * Version: 1.1.2
+ * Version: 1.1.3
  * Requires at least: 6.5
  * Requires PHP: 8.0
  * Author: Mahdi Karimi
@@ -17,7 +17,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'WOODSHOP_STUDIO_VERSION', '1.1.2' );
+define( 'WOODSHOP_STUDIO_VERSION', '1.1.3' );
 define( 'WOODSHOP_STUDIO_FILE', __FILE__ );
 define( 'WOODSHOP_STUDIO_BASENAME', plugin_basename( __FILE__ ) );
 define( 'WOODSHOP_STUDIO_DIR', plugin_dir_path( __FILE__ ) );
@@ -417,8 +417,6 @@ function woodshop_studio_defaults() {
 				array( 'image' => $img( 'craft-2.webp' ), 'name' => 'سوفیا رینولدز', 'role' => 'طراح داخلی' ),
 				array( 'image' => $img( 'craft-3.webp' ), 'name' => 'دانیل فاستر', 'role' => 'نجار ارشد' ),
 				array( 'image' => $img( 'avatar-1.webp' ), 'name' => 'مایکل هیز', 'role' => 'متخصص نصب' ),
-				array( 'image' => $img( 'avatar-2.webp' ), 'name' => 'آوا ریچاردسون', 'role' => 'مدیر پروژه' ),
-				array( 'image' => $img( 'avatar-3.webp' ), 'name' => 'لیام اندرسون', 'role' => 'نجار و پرداخت‌کار' ),
 			),
 			'team_eyebrow' => 'تیم ما',
 			'team_title'   => 'با متخصصان پشت هر قطعه آشنا شوید',

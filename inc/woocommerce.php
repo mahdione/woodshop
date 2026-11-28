@@ -39,7 +39,7 @@ add_action( 'woocommerce_after_main_content', 'woodshop_wc_wrapper_end', 10 );
  * @return int
  */
 function woodshop_loop_columns() {
-	return 3;
+	return 2;
 }
 add_filter( 'loop_shop_columns', 'woodshop_loop_columns', 20 );
 

@@ -6302,3 +6302,151 @@ a.contact-card__value:hover {
 	border-color: var(--white);
 	color: var(--ink);
 }
+
+/* Mobile header and shop polish */
+.site-header--overlay .nav-toggle {
+	color: var(--white);
+}
+
+@media (max-width: 1024px) {
+	.header-actions {
+		gap: 8px;
+	}
+
+	.header-cart {
+		margin-left: 0;
+	}
+}
+
+@media (max-width: 767px) {
+	.header-brand img,
+	.header-brand .custom-logo {
+		max-width: 82px;
+		max-height: 50px;
+	}
+
+	.cart-drawer__panel {
+		width: 80%;
+		max-width: 80%;
+	}
+
+	.woocommerce ul.products {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 12px;
+	}
+
+	.woocommerce ul.products li.product .woocommerce-loop-product__title {
+		padding: 10px 8px 3px;
+		font-size: 0.78rem;
+		letter-spacing: 0;
+		line-height: 1.45;
+		text-transform: none;
+	}
+
+	.woocommerce ul.products li.product .price {
+		padding: 0 8px;
+		font-size: 0.75rem;
+		line-height: 1.6;
+	}
+
+	.woocommerce ul.products li.product .button {
+		min-height: 34px;
+		margin: auto 8px 8px;
+		padding: 6px 4px;
+		gap: 4px;
+		border-width: 1px;
+		font-size: 0.62rem;
+		letter-spacing: 0;
+		line-height: 1.3;
+		white-space: nowrap;
+	}
+
+	.woocommerce ul.products li.product .button::before {
+		width: 11px;
+		height: 11px;
+	}
+
+	.shop-loop-bar {
+		gap: 8px;
+		margin-bottom: 14px;
+	}
+
+	.shop-loop-bar .woocommerce-result-count {
+		font-size: 0.75rem;
+		white-space: nowrap;
+	}
+
+	.shop-loop-bar .woocommerce-ordering {
+		min-width: 0;
+		margin-inline-start: auto;
+	}
+
+	.shop-loop-bar .woocommerce-ordering select {
+		width: auto;
+		min-width: 0;
+		max-width: 160px;
+		padding: 7px 8px;
+		font-size: 0.74rem;
+	}
+}
+
+/* About page: four team members in one row on desktop */
+.team-grid {
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+@media (max-width: 1023px) {
+	.team-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 767px) {
+	.team-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* Shop: two-column product grid and a single result/ordering row. */
+.woocommerce ul.products {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.woocommerce .shop-loop-bar .woocommerce-result-count,
+.woocommerce .shop-loop-bar .woocommerce-ordering {
+	float: none !important;
+	width: auto !important;
+	margin: 0 !important;
+}
+
+.woocommerce .shop-loop-bar .woocommerce-ordering {
+	margin-inline-start: auto !important;
+}
+
+@media (max-width: 767px) {
+	.woocommerce .shop-loop-bar .woocommerce-result-count {
+		font-size: 0.75rem;
+	}
+
+	.woocommerce .shop-loop-bar .woocommerce-ordering select {
+		width: auto;
+		min-width: 0;
+		max-width: 160px;
+		padding: 7px 8px;
+		font-size: 0.74rem;
+	}
+}
+
+.shop-loop-bar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	margin-bottom: 18px;
+}
+
+@media (max-width: 767px) {
+	.woocommerce ul.products li.product .button {
+		font-size: 0.66rem !important;
+	}
+}
