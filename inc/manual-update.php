@@ -210,31 +210,18 @@ function woodshop_updates_handle_plugin() {
 		woodshop_updates_redirect( array( __( 'The plugin is already up to date.', 'woodshop' ) ) );
 	}
 
-	$transient = get_site_transient( 'update_plugins' );
-	if ( ! is_object( $transient ) ) {
-		$transient = new stdClass();
-	}
-	if ( empty( $transient->response ) || ! is_array( $transient->response ) ) {
-		$transient->response = array();
-	}
-
-	$transient->response[ WOODSHOP_STUDIO_BASENAME ] = (object) array(
-		'id'          => 'github.com/' . WOODSHOP_STUDIO_GITHUB_REPO,
-		'slug'        => 'woodshop-studio',
-		'plugin'      => WOODSHOP_STUDIO_BASENAME,
-		'new_version' => $status['latest'],
-		'url'         => $status['url'],
-		'package'     => $status['package'],
-	);
-	set_site_transient( 'update_plugins', $transient );
-
 	require_once ABSPATH . 'wp-admin/includes/file.php';
 	require_once ABSPATH . 'wp-admin/includes/misc.php';
 	require_once ABSPATH . 'wp-admin/includes/update.php';
 	require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
 
+	/*
+	 * Use install() with overwrite instead of upgrade(). The regular plugin
+	 * upgrader deactivates active plugins during upgrade and does not turn them
+	 * back on in a direct admin-post request.
+	 */
 	$upgrader = new Plugin_Upgrader( new Automatic_Upgrader_Skin() );
-	$result   = $upgrader->upgrade( WOODSHOP_STUDIO_BASENAME );
+	$result   = $upgrader->install( $status['package'], array( 'overwrite_package' => true ) );
 
 	delete_site_transient( 'update_plugins' );
 	delete_transient( 'woodshop_studio_github_release_' . md5( WOODSHOP_STUDIO_GITHUB_REPO ) );
