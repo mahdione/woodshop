@@ -32,6 +32,7 @@ if ( ! defined( 'WOODSHOP_STUDIO_VERSION' ) ) {
 }
 
 require_once WOODSHOP_DIR . '/inc/demo-import.php';
+require_once WOODSHOP_DIR . '/inc/manual-update.php';
 
 if ( class_exists( 'WooCommerce' ) ) {
 	require_once WOODSHOP_DIR . '/inc/woocommerce.php';

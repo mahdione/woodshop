@@ -18,9 +18,9 @@ define( 'WOODSHOP_GITHUB_SLUG', 'woodshop' );
  *
  * @return array<string, mixed>
  */
-function woodshop_github_release() {
+function woodshop_github_release( $force = false ) {
 	$cache_key = 'woodshop_github_release_' . md5( WOODSHOP_GITHUB_REPO );
-	$cached    = get_transient( $cache_key );
+	$cached    = $force ? false : get_transient( $cache_key );
 
 	if ( is_array( $cached ) ) {
 		return $cached;
@@ -46,14 +46,18 @@ function woodshop_github_release() {
 	);
 
 	if ( is_wp_error( $response ) || 200 !== (int) wp_remote_retrieve_response_code( $response ) ) {
-		set_transient( $cache_key, array(), HOUR_IN_SECONDS );
+		if ( ! $force ) {
+			set_transient( $cache_key, array(), HOUR_IN_SECONDS );
+		}
 		return array();
 	}
 
 	$release = json_decode( wp_remote_retrieve_body( $response ), true );
 
 	if ( ! is_array( $release ) ) {
-		set_transient( $cache_key, array(), HOUR_IN_SECONDS );
+		if ( ! $force ) {
+			set_transient( $cache_key, array(), HOUR_IN_SECONDS );
+		}
 		return array();
 	}
 
