@@ -16,21 +16,24 @@ $ws_cards   = array();
 
 if ( $ws_terms ) {
 	foreach ( $ws_terms as $ws_index => $ws_term ) {
-		$ws_image = woodshop_term_image( $ws_term, 'ws-card' );
-		$ws_cards[] = array(
-			'title' => $ws_term->name,
-			'text'  => wp_trim_words( wp_strip_all_tags( term_description( $ws_term ) ), 18 ),
-			'image' => $ws_image ? $ws_image : ( $ws_manual[ $ws_index ]['image'] ?? '' ),
-			'url'   => get_term_link( $ws_term ),
+		$ws_image_id = (int) get_term_meta( $ws_term->term_id, 'thumbnail_id', true );
+		$ws_image    = $ws_image_id ? wp_get_attachment_image_url( $ws_image_id, 'ws-card' ) : woodshop_term_image( $ws_term, 'ws-card' );
+		$ws_cards[]  = array(
+			'title'  => $ws_term->name,
+			'text'   => wp_trim_words( wp_strip_all_tags( term_description( $ws_term ) ), 18 ),
+			'image'  => $ws_image ? $ws_image : ( $ws_manual[ $ws_index ]['image'] ?? '' ),
+			'srcset' => $ws_image_id ? woodshop_attachment_srcset( $ws_image_id ) : '',
+			'url'    => get_term_link( $ws_term ),
 		);
 	}
 } else {
 	foreach ( $ws_manual as $ws_item ) {
 		$ws_cards[] = array(
-			'title' => $ws_item['title'] ?? '',
-			'text'  => $ws_item['text'] ?? '',
-			'image' => $ws_item['image'] ?? '',
-			'url'   => $ws_item['url'] ?? '#',
+			'title'  => $ws_item['title'] ?? '',
+			'text'   => $ws_item['text'] ?? '',
+			'image'  => $ws_item['image'] ?? '',
+			'srcset' => is_numeric( $ws_item['image'] ?? '' ) ? woodshop_attachment_srcset( (int) $ws_item['image'] ) : '',
+			'url'    => $ws_item['url'] ?? '#',
 		);
 	}
 }
@@ -91,7 +94,8 @@ get_header();
 									'width'  => 800,
 									'height' => 533,
 									'class'  => 'service-card__img',
-									'sizes'  => '(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 430px',
+									'sizes'  => '(max-width: 767px) 100vw, (max-width: 1024px) 50vw, 430px',
+									'srcset' => $ws_card['srcset'] ?? '',
 								)
 							);
 							?>

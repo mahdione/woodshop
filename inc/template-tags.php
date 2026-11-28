@@ -101,7 +101,7 @@ function woodshop_image( $value, $args = array() ) {
 		(int) $args['height'],
 		esc_attr( $args['loading'] ),
 		esc_attr( $args['decoding'] ),
-		$srcset ? ' srcset="' . esc_url( $srcset ) . '"' : '',
+		$srcset ? ' srcset="' . esc_attr( $srcset ) . '"' : '',
 		$args['fetchpriority'] ? ' fetchpriority="' . esc_attr( $args['fetchpriority'] ) . '"' : ''
 	);
 }
@@ -436,6 +436,41 @@ function woodshop_product_categories( $ids = array(), $limit = 6 ) {
 }
 
 /**
+ * Build a srcset for an attachment from its generated sizes.
+ *
+ * @param int $attachment_id Attachment ID.
+ * @return string
+ */
+function woodshop_attachment_srcset( $attachment_id ) {
+	$attachment_id = (int) $attachment_id;
+	$meta          = wp_get_attachment_metadata( $attachment_id );
+	$url           = wp_get_attachment_url( $attachment_id );
+
+	if ( ! $meta || ! $url ) {
+		return '';
+	}
+
+	$base   = trailingslashit( dirname( $url ) );
+	$srcset = array();
+
+	foreach ( (array) ( $meta['sizes'] ?? array() ) as $size ) {
+		if ( empty( $size['file'] ) || empty( $size['width'] ) ) {
+			continue;
+		}
+
+		$srcset[ (int) $size['width'] ] = $base . $size['file'] . ' ' . (int) $size['width'] . 'w';
+	}
+
+	if ( ! empty( $meta['width'] ) ) {
+		$srcset[ (int) $meta['width'] ] = $url . ' ' . (int) $meta['width'] . 'w';
+	}
+
+	ksort( $srcset );
+
+	return implode( ', ', array_values( $srcset ) );
+}
+
+/**
  * Category image URL.
  *
  * @param WP_Term $term Category term.
@@ -465,13 +500,19 @@ function woodshop_product_card( $product ) {
 		return;
 	}
 
-	$link  = get_permalink( $product->get_id() );
-	$image = $product->get_image_id() ? wp_get_attachment_image_url( $product->get_image_id(), 'ws-square' ) : wc_placeholder_img_src( 'ws-square' );
-	$cats  = wc_get_product_category_list( $product->get_id(), ', ' );
+	$link     = get_permalink( $product->get_id() );
+	$image_id = $product->get_image_id();
+	$image    = $image_id ? wp_get_attachment_image_url( $image_id, 'ws-square' ) : wc_placeholder_img_src( 'ws-square' );
+	$srcset   = $image_id ? woodshop_attachment_srcset( $image_id ) : '';
+	$cats     = wc_get_product_category_list( $product->get_id(), ', ' );
 
 	echo '<li class="product-card">';
 	echo '<a class="product-card__media" href="' . esc_url( $link ) . '" tabindex="-1" aria-hidden="true">';
-	printf( '<img src="%s" alt="" width="700" height="700" loading="lazy" decoding="async">', esc_url( $image ) );
+	printf(
+		'<img src="%1$s" alt="" width="700" height="700" loading="lazy" decoding="async" srcset="%2$s" sizes="(max-width: 767px) 100vw, (max-width: 1024px) 50vw, 300px">',
+		esc_url( $image ),
+		esc_attr( $srcset )
+	);
 	if ( $product->is_on_sale() ) {
 		echo '<span class="product-card__badge">' . esc_html__( 'Sale', 'woodshop' ) . '</span>';
 	}

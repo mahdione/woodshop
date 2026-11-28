@@ -53,7 +53,7 @@
 	--ink: #1b110e;
 	--ink-rgb: 27, 17, 14;
 	--body: #4a4541;
-	--muted: #847b73;
+	--muted: #6b655e;
 	--brown: #75604b;
 	--brown-deep: #6e5a45;
 	--accent: #996a38;
@@ -6449,4 +6449,28 @@ a.contact-card__value:hover {
 	.woocommerce ul.products li.product .button {
 		font-size: 0.66rem !important;
 	}
+}
+
+/* Contrast and rendering performance */
+.showcase__text {
+	color: var(--bg-alt);
+}
+
+/* Skip rendering long below-the-fold sections until they approach the viewport. */
+.ws-front .features,
+.ws-front .about,
+.ws-front .services,
+.ws-front .ws-products,
+.ws-front .showcase,
+.ws-front .guarantee,
+.ws-front .gallery-section,
+.ws-front .areas,
+.ws-front .sectors,
+.ws-front .logos,
+.ws-front .financing,
+.ws-front .testimonials,
+.ws-front .blog-section,
+.ws-front .cta-section {
+	content-visibility: auto;
+	contain-intrinsic-size: auto 620px;
 }

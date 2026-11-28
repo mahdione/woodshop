@@ -211,7 +211,7 @@ class Woodshop_Studio_Admin {
 							array( 'key' => 'styles.dark', 'type' => 'color', 'label' => __( 'Dark sections and footer', 'woodshop-studio' ), 'default' => '#140d09' ),
 							array( 'key' => 'styles.ink', 'type' => 'color', 'label' => __( 'Headings and strong text', 'woodshop-studio' ), 'default' => '#1b110e' ),
 							array( 'key' => 'styles.body', 'type' => 'color', 'label' => __( 'Body text', 'woodshop-studio' ), 'default' => '#4a4541' ),
-							array( 'key' => 'styles.muted', 'type' => 'color', 'label' => __( 'Muted text', 'woodshop-studio' ), 'default' => '#847b73' ),
+							array( 'key' => 'styles.muted', 'type' => 'color', 'label' => __( 'Muted text', 'woodshop-studio' ), 'default' => '#6b655e' ),
 							array( 'key' => 'styles.brown', 'type' => 'color', 'label' => __( 'Primary brand color', 'woodshop-studio' ), 'default' => '#75604b' ),
 							array( 'key' => 'styles.brown_deep', 'type' => 'color', 'label' => __( 'Primary dark tone', 'woodshop-studio' ), 'default' => '#6e5a45' ),
 							array( 'key' => 'styles.accent', 'type' => 'color', 'label' => __( 'Accent and hover color', 'woodshop-studio' ), 'default' => '#996a38' ),

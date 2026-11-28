@@ -36,14 +36,22 @@ $ws_points = woodshop_option(
 
 		<aside class="stat-card reveal">
 			<?php
+			$ws_about_image  = woodshop_option( 'about.image', WOODSHOP_URI . '/assets/img/bg-why.webp' );
+			$ws_about_srcset = '';
+
+			if ( is_string( $ws_about_image ) && false !== strpos( $ws_about_image, '/assets/img/bg-why.webp' ) ) {
+				$ws_about_srcset = WOODSHOP_URI . '/assets/img/bg-why-600.webp 600w, ' . WOODSHOP_URI . '/assets/img/bg-why-900.webp 900w, ' . WOODSHOP_URI . '/assets/img/bg-why.webp 1097w';
+			}
+
 			woodshop_image(
-				woodshop_option( 'about.image', WOODSHOP_URI . '/assets/img/bg-why.webp' ),
+				$ws_about_image,
 				array(
 					'alt'    => '',
-					'width'  => 1400,
-					'height' => 933,
+					'width'  => 1097,
+					'height' => 934,
 					'class'  => 'stat-card__bg',
-					'sizes'  => '50vw',
+					'sizes'  => '(max-width: 767px) 100vw, 50vw',
+					'srcset' => $ws_about_srcset,
 				)
 			);
 			?>

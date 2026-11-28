@@ -3,7 +3,7 @@
  * Plugin Name: Wood Shop Studio
  * Plugin URI: https://github.com/mahdione/woodshop-studio
  * Description: Homepage builder and theme customizer for the Wood Shop WordPress theme. Manage the hero slider, sections, products, menus, footer and request form from a single admin screen.
- * Version: 1.1.4
+ * Version: 1.1.5
  * Requires at least: 6.5
  * Requires PHP: 8.0
  * Author: Mahdi Karimi
@@ -17,7 +17,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'WOODSHOP_STUDIO_VERSION', '1.1.4' );
+define( 'WOODSHOP_STUDIO_VERSION', '1.1.5' );
 define( 'WOODSHOP_STUDIO_FILE', __FILE__ );
 define( 'WOODSHOP_STUDIO_BASENAME', plugin_basename( __FILE__ ) );
 define( 'WOODSHOP_STUDIO_DIR', plugin_dir_path( __FILE__ ) );
@@ -117,7 +117,7 @@ function woodshop_studio_defaults() {
 			'bg_alt'     => '#f4f0eb',
 			'ink'        => '#1b110e',
 			'body'       => '#4a4541',
-			'muted'      => '#847b73',
+			'muted'      => '#6b655e',
 			'brown'      => '#75604b',
 			'brown_deep' => '#6e5a45',
 			'accent'     => '#996a38',

@@ -25,12 +25,14 @@ if ( 'categories' === $ws_source && taxonomy_exists( 'product_cat' ) ) {
 	$ws_terms = woodshop_product_categories( is_array( $ws_ids ) ? $ws_ids : array(), 6 );
 
 	foreach ( $ws_terms as $ws_i => $ws_term ) {
-		$ws_image = woodshop_term_image( $ws_term, 'ws-card' );
-		$ws_cards[] = array(
-			'title' => $ws_term->name,
-			'text'  => wp_trim_words( wp_strip_all_tags( term_description( $ws_term ) ), 16 ),
-			'image' => $ws_image ? $ws_image : WOODSHOP_URI . '/assets/img/' . $ws_fallbacks[ $ws_i % 6 ],
-			'url'   => get_term_link( $ws_term ),
+		$ws_image_id = (int) get_term_meta( $ws_term->term_id, 'thumbnail_id', true );
+		$ws_image    = $ws_image_id ? wp_get_attachment_image_url( $ws_image_id, 'ws-card' ) : woodshop_term_image( $ws_term, 'ws-card' );
+		$ws_cards[]  = array(
+			'title'  => $ws_term->name,
+			'text'   => wp_trim_words( wp_strip_all_tags( term_description( $ws_term ) ), 16 ),
+			'image'  => $ws_image ? $ws_image : WOODSHOP_URI . '/assets/img/' . $ws_fallbacks[ $ws_i % 6 ],
+			'srcset' => $ws_image_id ? woodshop_attachment_srcset( $ws_image_id ) : '',
+			'url'    => get_term_link( $ws_term ),
 		);
 	}
 }
@@ -50,10 +52,11 @@ if ( empty( $ws_cards ) ) {
 
 	foreach ( (array) $ws_items as $ws_i => $ws_item ) {
 		$ws_cards[] = array(
-			'title' => $ws_item['title'] ?? '',
-			'text'  => $ws_item['text'] ?? '',
-			'image' => $ws_item['image'] ?? ( WOODSHOP_URI . '/assets/img/' . $ws_fallbacks[ $ws_i % 6 ] ),
-			'url'   => $ws_item['url'] ?? '#',
+			'title'  => $ws_item['title'] ?? '',
+			'text'   => $ws_item['text'] ?? '',
+			'image'  => $ws_item['image'] ?? ( WOODSHOP_URI . '/assets/img/' . $ws_fallbacks[ $ws_i % 6 ] ),
+			'srcset' => is_numeric( $ws_item['image'] ?? '' ) ? woodshop_attachment_srcset( (int) $ws_item['image'] ) : '',
+			'url'    => $ws_item['url'] ?? '#',
 		);
 	}
 }
@@ -85,7 +88,8 @@ $ws_phone_h = woodshop_option( 'brand.phone_url', 'tel:+11234567890' );
 								'width'  => 800,
 								'height' => 533,
 								'class'  => 'service-card__img',
-								'sizes'  => '(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 430px',
+								'sizes'  => '(max-width: 767px) 100vw, (max-width: 1024px) 50vw, 430px',
+								'srcset' => $ws_card['srcset'] ?? '',
 							)
 						);
 						?>

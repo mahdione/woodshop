@@ -18,7 +18,7 @@ function woodshop_palette_defaults() {
 		'bg_alt'     => '#f4f0eb',
 		'ink'        => '#1b110e',
 		'body'       => '#4a4541',
-		'muted'      => '#847b73',
+		'muted'      => '#6b655e',
 		'brown'      => '#75604b',
 		'brown_deep' => '#6e5a45',
 		'accent'     => '#996a38',

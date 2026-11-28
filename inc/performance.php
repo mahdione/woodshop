@@ -190,6 +190,21 @@ function woodshop_preload_assets() {
 add_action( 'wp_head', 'woodshop_preload_assets', 2 );
 
 /**
+ * Add a bundled favicon when the site has no Site Icon.
+ */
+function woodshop_favicon_fallback() {
+	if ( function_exists( 'has_site_icon' ) && has_site_icon() ) {
+		return;
+	}
+
+	printf(
+		'<link rel="icon" href="%s" type="image/png" sizes="any">' . "\n",
+		esc_url( WOODSHOP_URI . '/assets/img/favicon.png' )
+	);
+}
+add_action( 'wp_head', 'woodshop_favicon_fallback', 1 );
+
+/**
  * Meta description, Open Graph and theme color.
  */
 function woodshop_meta_tags() {
