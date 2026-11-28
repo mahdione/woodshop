@@ -79,6 +79,11 @@ $ws_slide_count = count( $ws_slides );
 						$ws_srcset = WOODSHOP_URI . '/assets/img/hero-3.webp 960w, ' . WOODSHOP_URI . '/assets/img/hero-3@2x.webp 1600w';
 					}
 					?>
+					<?php $ws_inline = $ws_first ? woodshop_inline_hero_data( $ws_src ) : ''; ?>
+					<?php if ( $ws_inline ) : ?>
+						<picture>
+							<source media="(max-width: 767px)" srcset="<?php echo esc_attr( $ws_inline ); ?>">
+					<?php endif; ?>
 					<img
 						class="hero__img"
 						src="<?php echo esc_url( $ws_src ); ?>"
@@ -91,6 +96,9 @@ $ws_slide_count = count( $ws_slides );
 						decoding="<?php echo $ws_first ? 'sync' : 'async'; ?>"
 						fetchpriority="<?php echo $ws_first ? 'high' : 'low'; ?>"
 					>
+					<?php if ( $ws_inline ) : ?>
+						</picture>
+					<?php endif; ?>
 				<?php endif; ?>
 			</div>
 		<?php endforeach; ?>

@@ -163,12 +163,16 @@ function woodshop_preload_assets() {
 		$src = WOODSHOP_URI . '/assets/img/hero-1.webp';
 	}
 
+	$inline_hero = ! is_numeric( $first ) ? woodshop_inline_hero_data( $src ) : '';
+	$media_attr  = $inline_hero ? ' media="(min-width: 768px)"' : '';
+
 	if ( is_numeric( $first ) ) {
 		$srcset = wp_get_attachment_image_srcset( (int) $first, 'full' );
 		printf(
-			'<link rel="preload" as="image" href="%1$s"%2$s imagesizes="100vw" fetchpriority="high">' . "\n",
+			'<link rel="preload" as="image" href="%1$s"%2$s imagesizes="100vw" fetchpriority="high"%3$s>' . "\n",
 			esc_url( $src ),
-			$srcset ? ' imagesrcset="' . esc_attr( $srcset ) . '"' : ''
+			$srcset ? ' imagesrcset="' . esc_attr( $srcset ) . '"' : '',
+			$media_attr
 		);
 	} else {
 		$srcset = '';
@@ -181,9 +185,10 @@ function woodshop_preload_assets() {
 		}
 
 		printf(
-			'<link rel="preload" as="image" href="%1$s"%2$s imagesizes="100vw" fetchpriority="high">' . "\n",
+			'<link rel="preload" as="image" href="%1$s"%2$s imagesizes="100vw" fetchpriority="high"%3$s>' . "\n",
 			esc_url( $src ),
-			$srcset ? ' imagesrcset="' . esc_attr( $srcset ) . '"' : ''
+			$srcset ? ' imagesrcset="' . esc_attr( $srcset ) . '"' : '',
+			$media_attr
 		);
 	}
 }

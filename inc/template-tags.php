@@ -436,6 +436,40 @@ function woodshop_product_categories( $ids = array(), $limit = 6 ) {
 }
 
 /**
+ * Return the first default hero image as an inline data URI for mobile.
+ *
+ * Inlining a small LCP image removes the extra network round-trip on phones.
+ * The desktop image is still served from the normal responsive file.
+ *
+ * @param string $url Hero image URL.
+ * @return string
+ */
+function woodshop_inline_hero_data( $url ) {
+	static $cache = array();
+
+	if ( ! is_string( $url ) || false === strpos( $url, '/assets/img/hero-1.webp' ) ) {
+		return '';
+	}
+
+	if ( isset( $cache[ $url ] ) ) {
+		return $cache[ $url ];
+	}
+
+	$file = get_template_directory() . '/assets/img/hero-1.webp';
+
+	if ( ! file_exists( $file ) || filesize( $file ) > 40000 ) {
+		$cache[ $url ] = '';
+		return '';
+	}
+
+	$data = 'data:image/webp;base64,' . base64_encode( (string) file_get_contents( $file ) ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+
+	$cache[ $url ] = $data;
+
+	return $data;
+}
+
+/**
  * Build a srcset for an attachment from its generated sizes.
  *
  * @param int $attachment_id Attachment ID.
